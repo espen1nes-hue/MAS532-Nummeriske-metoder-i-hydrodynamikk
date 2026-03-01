@@ -1,0 +1,20 @@
+# Generated outputs
+results/
+figures/
+*.png
+
+# Windows metadata
+*:Zone.Identifier
+
+# Julia cache/compiled files
+*.ji
+
+# Mac junk
+.DS_Store# Windows metadata
+*:Zone.Identifier
+
+# Julia cache
+*.ji
+
+# Mac junk
+.DS_Store
