@@ -29,8 +29,8 @@ end
 
 # ── Main ──────────────────────────────────────────────────────────────────
 function main()
-    Re = 1000000
-    p = 5                       # Mesh: p=5→96×64, p=6→192×128, p=7→384×256
+    Re = 100
+    p = 7                       # Mesh: p=5→96×64, p=6→192×128, p=7→384×256
     t_max = 150.0
     dt_out = 0.1
     t_transient = t_max / 3     # Discard first third as transient for statistics
@@ -91,6 +91,8 @@ function main()
     println("Mean Cd: ", round(mean(drag[idx:end]), digits=4))
     println("Mean Cl: ", round(mean(lift[idx:end]), digits=4))
     println("RMS  Cl: ", round(sqrt(mean(lift[idx:end] .^ 2)), digits=4))
+    println("Max Cl: ", round(maximum(lift[idx:end]), digits=4))
+    println("Min Cl: ", round(minimum(lift[idx:end]), digits=4))
 
     St = compute_strouhal(time_range, lift; t_transient)
     println("Strouhal (St): ", round(St, digits=4))
