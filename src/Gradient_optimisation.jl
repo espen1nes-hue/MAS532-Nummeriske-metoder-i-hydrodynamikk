@@ -41,37 +41,37 @@ function plot_optimization_progress(trace)
     f_values = [t.value for t in trace]
     x_values = [t.metadata["x"][1] for t in trace]
     
-    figure(1)
-    clf()  # Clear previous plots
+    PyPlot.figure(1)
+    PyPlot.clf()  # Clear previous plots
 
-    subplot(1, 2, 1)
-    plot(iterations, f_values, marker="o", color="black", linewidth=2)
-    xlabel("Iteration")
-    ylabel("Objective Value")
-    title("Objective Function Progress")
+    PyPlot.subplot(1, 2, 1)
+    PyPlot.plot(iterations, f_values, marker="o", color="black", linewidth=2)
+    PyPlot.xlabel("Iteration")
+    PyPlot.ylabel("Objective Value")
+    PyPlot.title("Objective Function Progress")
 
-    subplot(1, 2, 2)
-    plot(iterations, x_values, marker="o", color="black", linewidth=2)
-    xlabel("Iteration")
-    ylabel("Parameter Value")
-    title("Parameter Progress")
+    PyPlot.subplot(1, 2, 2)
+    PyPlot.plot(iterations, x_values, marker="o", color="black", linewidth=2)
+    PyPlot.xlabel("Iteration")
+    PyPlot.ylabel("Parameter Value")
+    PyPlot.title("Parameter Progress")
 
-    tight_layout()
-    show()
+    PyPlot.tight_layout()
+    PyPlot.show()
 end
 
 # Plot the solution space
 function plot_solution_space(x_range, f_range, optimal_x, optimal_f, x0)
-    figure(2)
-    clf()  # Clear figure before plotting
-    plot(x_range, f_range, color="black", linestyle="--", linewidth=2, label="f(x)", alpha=0.5)
-    scatter([optimal_x[1]], [optimal_f], color="red", s=100, label="Optimal Solution")
-    xlabel("x", fontsize=16)  # Set fontsize for xlabel
-    ylabel("f(x)", fontsize=16)  # Set fontsize for ylabel
-    title("Solution Space, x0 = $(x0[1])", fontsize=18)  # Set fontsize for title and include x0 in title
-    legend(loc="upper left", fontsize=14)  # Position legend at the top-right and set fontsize
-    tick_params(axis="both", labelsize=14)  # Set fontsize for axis ticks
-    show()
+    PyPlot.figure(2)
+    PyPlot.clf()  # Clear figure before plotting
+    PyPlot.plot(x_range, f_range, color="black", linestyle="--", linewidth=2, label="f(x)", alpha=0.5)
+    PyPlot.scatter([optimal_x[1]], [optimal_f], color="red", s=100, label="Optimal Solution")
+    PyPlot.xlabel("x", fontsize=16)  # Set fontsize for xlabel
+    PyPlot.ylabel("f(x)", fontsize=16)  # Set fontsize for ylabel
+    PyPlot.title("Solution Space, x0 = $(x0[1])", fontsize=18)  # Set fontsize for title and include x0 in title
+    PyPlot.legend(loc="upper left", fontsize=14)  # Position legend at the top-right and set fontsize
+    PyPlot.tick_params(axis="both", labelsize=14)  # Set fontsize for axis ticks
+    PyPlot.show()
 end
 
 
@@ -79,7 +79,7 @@ end
 function main()
 
     # Initial guess
-    x0 = [10.0]          # Starting-point, within the bounds
+    x0 = [10.2]          # Starting-point, within the bounds
 
     # Bounds 
     lb = [0.0]          # Lower bound

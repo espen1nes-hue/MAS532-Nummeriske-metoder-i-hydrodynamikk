@@ -30,7 +30,7 @@ end
 # ── Main ──────────────────────────────────────────────────────────────────
 function main()
     Re = 100
-    p = 7                       # Mesh: p=5→96×64, p=6→192×128, p=7→384×256
+    p = 6                       # Mesh: p=5→96×64, p=6→192×128, p=7→384×256
     t_max = 150.0
     dt_out = 0.1
     t_transient = t_max / 3     # Discard first third as transient for statistics
@@ -42,7 +42,7 @@ function main()
     gif_fps = 15                # Frames per second
 
     # Create simulation
-    n = 3 * 2^p
+    n = 5 * 2^p
     m = 2^(p + 1)
     sim = circle(n, m; Re)
     R = inside(sim.flow.p)

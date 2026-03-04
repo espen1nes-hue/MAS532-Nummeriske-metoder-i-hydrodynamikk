@@ -10,15 +10,16 @@ end
 
 # Function to plot the solution space
 function plot_solution_space(x_range, f_range, optimal_x, optimal_f)
-    figure(1)
-    clf()  # Clear figure before plotting
-    plot(x_range, f_range, color="black", linestyle="--", linewidth=2, label="f(x)", alpha=0.5)
-    scatter([optimal_x], [optimal_f], color="red", s=100, label="Optimal Solution")
-    xlabel("x", fontsize=14)  # Set fontsize for xlabel
-    ylabel("f(x)", fontsize=14)  # Set fontsize for ylabel
-    title("Solution Space", fontsize=16)  # Set fontsize for title
-    legend(loc="upper left", fontsize=12)  # Position legend at the top-left and set fontsize
-    tick_params(axis="both", labelsize=12)  # Set fontsize for axis ticks
+    PyPlot.figure(1)
+    PyPlot.clf()  # Clear figure before plotting
+    PyPlot.plot(x_range, f_range, color="black", linestyle="--", linewidth=2, label="f(x)", alpha=0.5)
+    PyPlot.scatter([optimal_x], [optimal_f], color="red", s=100, label="Optimal Solution")
+    PyPlot.xlabel("x", fontsize=14)  # Set fontsize for xlabel
+    PyPlot.ylabel("f(x)", fontsize=14)  # Set fontsize for ylabel
+    PyPlot.title("Solution Space", fontsize=16)  # Set fontsize for title
+    PyPlot.legend(loc="upper left", fontsize=12)  # Position legend at the top-left and set fontsize
+    PyPlot.tick_params(axis="both", labelsize=12)  # Set fontsize for axis ticks
+    PyPlot.show()
 end
 
 

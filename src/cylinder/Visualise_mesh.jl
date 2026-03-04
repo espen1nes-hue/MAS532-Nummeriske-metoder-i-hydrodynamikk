@@ -1,8 +1,8 @@
 using Plots
 
 # ── Parameters (match WaterLily README) ───────────────────────────────────
-p = 7                           # Mesh power: p=5→96×64, p=6→192×128, p=7→384×256
-n = 5 * 2^p                    # x-cells
+p = 5                           # Mesh power: p=5→96×64, p=6→192×128, p=7→384×256
+n = 3 * 2^p                    # x-cells
 m = 2^(p + 1)                  # y-cells
 radius = m / 8                 # WaterLily: m/8
 center = m / 2 - 1             # WaterLily: m/2 - 1
@@ -25,7 +25,6 @@ plt = heatmap(0.5:n-0.5, 0.5:m-0.5, body',
     colorbar=false,
     aspect_ratio=:equal,
     xlims=(0, n), ylims=(0, m),
-    xlabel="x (cells)", ylabel="y (cells)",
     title="Mesh  ($n × $m,  p=$p,  L=$(Int(L)) cells/D)",
     background_color=:white,
     titlefontsize=14, xlabelfontsize=16,
@@ -66,7 +65,7 @@ plot!(plt,
     center .+ radius .* cos.(θ),
     center .+ radius .* sin.(θ),
     linewidth=2.5, linecolor=:red, linestyle=:solid,
-    label="SDF = 0  (D = $(Int(L)) cells)")
+    label="SDF = 0  (D = $(Int(L)) cells)" )
 
 savefig(plt, "Mesh.png")
 println("Saved: Mesh.png")

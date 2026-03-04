@@ -4,7 +4,7 @@ using Random
 using PyPlot
 
 # Clear current figure
-clf()
+PyPlot.clf()
 
 # Define the objective function for Problem02
 function f(x)
@@ -89,40 +89,40 @@ function plotting(x_infill_point,x_refined,y_refined,x_samples,y_samples,krig_ap
     
     # Plotting
     font_size = 18
-    clf()
+    PyPlot.clf()
 
     # First subplot: Kriging approximation
-    subplot(1, 2, 1)  # 1 row, 2 columns, 1st subplot
-    plot(x_refined, y_refined, "k--", label="True function", linewidth=1.25)
-    scatter(x_samples, y_samples, label="Sample points", color="yellow", s=100, marker="o", edgecolor="black", linewidth=1.25, alpha=1)  # Initial sample points
-    plot(x_refined, krig_approx, color="red", linestyle="-", linewidth=2, label="Kriging model") 
-    fill_between(x_refined, krig_approx .- std_err, krig_approx .+ std_err, color="green", alpha=0.2, label="± MSE error")
-    title("Kriging Model", fontsize=font_size + 6)
-    xlabel("x", fontsize=font_size)
-    ylabel("f(x)", fontsize=font_size)
-    legend(fontsize=font_size-4)
-    xticks(fontsize=font_size-4)
-    yticks(fontsize=font_size-4)
-    grid(true)
+    PyPlot.subplot(1, 2, 1)  # 1 row, 2 columns, 1st subplot
+    PyPlot.plot(x_refined, y_refined, "k--", label="True function", linewidth=1.25)
+    PyPlot.scatter(x_samples, y_samples, label="Sample points", color="yellow", s=100, marker="o", edgecolor="black", linewidth=1.25, alpha=1)  # Initial sample points
+    PyPlot.plot(x_refined, krig_approx, color="red", linestyle="-", linewidth=2, label="Kriging model") 
+    PyPlot.fill_between(x_refined, krig_approx .- std_err, krig_approx .+ std_err, color="green", alpha=0.2, label="± MSE error")
+    PyPlot.title("Kriging Model", fontsize=font_size + 6)
+    PyPlot.xlabel("x", fontsize=font_size)
+    PyPlot.ylabel("f(x)", fontsize=font_size)
+    PyPlot.legend(fontsize=font_size-4)
+    PyPlot.xticks(fontsize=font_size-4)
+    PyPlot.yticks(fontsize=font_size-4)
+    PyPlot.grid(true)
 
     # Second subplot: Standard Error
-    subplot(1, 2, 2)  # 1 row, 2 columns, 2nd subplot
-    plot(x_refined, mse_std_err, color="green", linewidth=2)
-    fill_between(x_refined, mse_std_err, color="green", alpha=0.9)  # Fill the area under the curve
-    scatter(x_infill_point, max_mse_std_err, color="lightblue", s=100, marker="o", edgecolor="black", linewidth=1.25, label="Max error = $max_mse_std_err_plot")
-    title("Predicted error", fontsize=font_size + 6)
-    xlabel("x", fontsize=font_size)
-    ylabel("MSE error(x)", fontsize=font_size)
-    legend(fontsize=font_size-4)
-    xticks(fontsize=font_size-4)
-    yticks(fontsize=font_size-4)
-    ylim(0, max_mse_std_err * 1.1)  # Set lower limit to 0, upper limit will auto-adjust
-    grid(true)
+    PyPlot.subplot(1, 2, 2)  # 1 row, 2 columns, 2nd subplot
+    PyPlot.plot(x_refined, mse_std_err, color="green", linewidth=2)
+    PyPlot.fill_between(x_refined, mse_std_err, color="green", alpha=0.9)  # Fill the area under the curve
+    PyPlot.scatter(x_infill_point, max_mse_std_err, color="lightblue", s=100, marker="o", edgecolor="black", linewidth=1.25, label="Max error = $max_mse_std_err_plot")
+    PyPlot.title("Predicted error", fontsize=font_size + 6)
+    PyPlot.xlabel("x", fontsize=font_size)
+    PyPlot.ylabel("MSE error(x)", fontsize=font_size)
+    PyPlot.legend(fontsize=font_size-4)
+    PyPlot.xticks(fontsize=font_size-4)
+    PyPlot.yticks(fontsize=font_size-4)
+    PyPlot.ylim(0, max_mse_std_err * 1.1)  # Set lower limit to 0, upper limit will auto-adjust
+    PyPlot.grid(true)
 
     # Adjust layout
-    tight_layout()
-    draw()
-    sleep(1)
+    PyPlot.tight_layout()
+    PyPlot.draw()
+    PyPlot.sleep(1)
 end
 
 
